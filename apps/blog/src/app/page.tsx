@@ -1,33 +1,34 @@
 import { fetchPosts } from '@repo/api/blog';
-import Link from 'next/link';
+import { FeaturedArticles } from '@/components/homepage/featured-articles';
+import { HeroSection } from '@/components/homepage/hero-section';
 
-export default async function BlogHomePage() {
-  const posts = await fetchPosts(10);
+export const metadata = {
+  title: 'Vercel Daily',
+};
+
+async function Content() {
+  // Haal alleen de hero post op, de rest wordt door de FeaturedArticles afgehandeld
+  const posts = await fetchPosts(1);
+  const hero = posts[0];
+
+  if (!hero) {
+    return (
+      <div className="flex items-center justify-center min-h-[50vh]">
+        <p className="text-[var(--color-ink-muted)]">No articles found.</p>
+      </div>
+    );
+  }
 
   return (
-    <main className="flex flex-col gap-8">
-      <h1 className="font-bold text-4xl">Blog</h1>
+    <>
+      <HeroSection post={hero} />
+      <FeaturedArticles />
+    </>
+  );
+}
 
-      <div className="flex flex-col gap-6">
-        {posts.map((post) => (
-          <article key={post.id} className="flex flex-col gap-2 border-b pb-6">
-            <Link href={`/${post.slug}`} className="hover:underline">
-              <h2 className="font-semibold text-2xl">{post.title}</h2>
-            </Link>
-            <p className="text-sm text-gray-500">
-              {post.category} · {post.readingTime} min read ·{' '}
-              {post.publishedAt.toLocaleDateString()}
-            </p>
-            <p className="text-gray-700">{post.excerpt}</p>
-            <Link
-              href={`/${post.slug}`}
-              className="text-sm text-blue-600 hover:underline"
-            >
-              Read more →
-            </Link>
-          </article>
-        ))}
-      </div>
-    </main>
+export default function HomePage() {
+  return (
+    <Content />
   );
 }

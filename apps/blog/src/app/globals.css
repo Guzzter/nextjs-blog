@@ -1,3 +1,68 @@
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
 @import "@repo/ui/globals.css";
+
+@theme inline {
+  /* Huisstijl: Design tokens */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Nieuw kleurenpalet */
+  --baltic-blue: #2f6690;
+  --cerulean: #3a7ca5;
+  --alabaster-grey: #d9dcd6;
+  --yale-blue: #16425b;
+  --sky-blue-light: #81c3d7;
+
+  /* Mapping naar systeemkleuren */
+  --color-ink: var(--yale-blue);
+  --color-ink-muted: var(--cerulean);
+  --color-paper: var(--alabaster-grey);
+  --color-paper-warm: var(--sky-blue-light);
+  --color-rule: var(--baltic-blue);
+  --color-accent: var(--cerulean);
+  --color-accent-warm: var(--baltic-blue);
+  --color-breaking: var(--yale-blue);
+  --animate-spin-slow: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  line-height: 1.5;
+}
+
+.rule-double {
+  border-top: 3px double var(--color-rule);
+}
+.rule-thin {
+  border-top: 1px solid var(--color-rule);
+}
+
+.paywall-fade {
+  position: relative;
+}
+.paywall-fade::after {
+  /* Fade: Visuele diepte, UX hint */
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, var(--color-paper) 85%);
+  pointer-events: none;
+}
