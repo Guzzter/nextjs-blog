@@ -4,7 +4,12 @@ import { FeaturedImage } from '@/components/article/featured-image';
 import { SubscribeCTA } from '@/components/article/subscribe-cta';
 import { TrendingArticles } from '@/components/article/trending-articles';
 
-export default function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
   return (
     <div>
       {/* todo: implement article page logic */}
@@ -12,7 +17,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
       <FeaturedImage src={null} alt="" />
       <ArticleContent content={null} isSubscribed={false} />
       <SubscribeCTA />
-      <TrendingArticles />
+      <TrendingArticles slug={slug} />
     </div>
   );
 }
