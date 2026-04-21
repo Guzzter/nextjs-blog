@@ -1,9 +1,11 @@
 import { fetchPostBySlug } from '@repo/api/blog';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getSubscribed } from '@/app/actions/subscription';
 import { ArticleContent } from '@/components/article/article-content';
 import { ArticleHeader } from '@/components/article/article-header';
 import { FeaturedImage } from '@/components/article/featured-image';
+import { SubscribeCTA } from '@/components/article/subscribe-cta';
 import { TrendingArticles } from '@/components/article/trending-articles';
 
 type Props = {
@@ -35,6 +37,7 @@ async function ArticlePageContainer({
   paramsPromise: Promise<{ slug: string }>;
 }) {
   const { slug } = await paramsPromise;
+  const subscribed = await getSubscribed();
 
   const post = await fetchPostBySlug(slug);
 
@@ -49,7 +52,8 @@ async function ArticlePageContainer({
           <article>
             <ArticleHeader post={post} />
             <FeaturedImage alt={post.title} src={post.coverImage} />
-            <ArticleContent content={post.content} isSubscribed={true} />
+            <ArticleContent content={post.content} isSubscribed={subscribed} />
+            {!subscribed && <SubscribeCTA />}
           </article>
         </div>
 

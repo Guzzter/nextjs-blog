@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { getSubscribed } from '@/app/actions/subscription';
+import { SubscribeButton } from '@/components/subscription/subscribe-button';
 
 export async function SiteHeader() {
+  const subscribed = await getSubscribed();
 
   return (
     <header className="backdrop-blur-sm bg-[var(--color-paper)]/95 sticky top-0 z-50">
@@ -27,6 +30,7 @@ export async function SiteHeader() {
             >
               Search
             </Link>
+            <SubscribeButton isSubscribed={subscribed} />
           </nav>
         </div>
       </div>
