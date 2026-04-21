@@ -1,7 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    NEXT_PUBLIC_SITE_NAME: 'Vercel Daily',
+  },
 };
 
 export default nextConfig;

@@ -3,7 +3,7 @@ import { FeaturedArticles } from '@/components/homepage/featured-articles';
 import { HeroSection } from '@/components/homepage/hero-section';
 
 export const metadata = {
-  title: 'Vercel Daily',
+  title: 'Home',
 };
 
 async function Content() {

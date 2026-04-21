@@ -6,8 +6,11 @@ import { SiteHeader } from '@/components/navigational/header';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Vercel Daily',
-  description: 'Vercel Daily News',
+  title: {
+    template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
+    default: process.env.NEXT_PUBLIC_SITE_NAME as string,
+  },
+  description: `${process.env.NEXT_PUBLIC_SITE_NAME} News`,
 };
 
 export default function RootLayout({

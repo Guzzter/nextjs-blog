@@ -12,7 +12,7 @@ export async function SiteHeader() {
             className="font-black font-serif sm:text-3xl text-[var(--color-ink)] text-2xl tracking-tight"
             href="/"
           >
-            Vercel Daily
+            {process.env.NEXT_PUBLIC_SITE_NAME}
           </Link>
           <nav className="flex gap-4 items-center sm:gap-6">
             <Link
