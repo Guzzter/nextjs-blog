@@ -17,7 +17,6 @@ export async function TrendingArticles({ slug }: TrendingArticlesProps) {
         <div className="bg-[var(--color-rule)] flex-1 h-px opacity-20" />
       </div>
       <div className="flex flex-col gap-10">
-        <p className="sr-only">Popular stories currently being widely read in the Vercel community.</p>
         {trending.map((post) => (
           <ArticleCard key={post.id} post={post} />
         ))}
