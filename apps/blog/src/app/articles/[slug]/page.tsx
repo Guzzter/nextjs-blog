@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { fetchPostBySlug } from '@repo/api/blog';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -37,9 +38,11 @@ async function ArticlePageContainer({
   paramsPromise: Promise<{ slug: string }>;
 }) {
   const { slug } = await paramsPromise;
-  const subscribed = await getSubscribed();
 
-  const post = await fetchPostBySlug(slug);
+  const [subscribed, post] = await Promise.all([
+    getSubscribed(),
+    fetchPostBySlug(slug),
+  ]);
 
   if (!post) {
     notFound();
@@ -58,7 +61,19 @@ async function ArticlePageContainer({
         </div>
 
         <aside className="lg:border-[var(--color-rule)]/10 lg:border-l lg:pl-12">
-          <TrendingArticles slug={slug} />
+          <Suspense
+            fallback={
+              <div className="animate-pulse space-y-8">
+                <div className="h-6 w-32 bg-[var(--color-rule)]/10 rounded" />
+                <div className="space-y-10">
+                  <div className="h-48 bg-[var(--color-rule)]/10 rounded" />
+                  <div className="h-48 bg-[var(--color-rule)]/10 rounded" />
+                </div>
+              </div>
+            }
+          >
+            <TrendingArticles slug={slug} />
+          </Suspense>
         </aside>
       </div>
     </div>
@@ -66,5 +81,21 @@ async function ArticlePageContainer({
 }
 
 export default function ArticlePage({ params }: Props) {
-  return <ArticlePageContainer paramsPromise={params} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-6xl mx-auto px-4 py-12 sm:px-6 w-full animate-pulse">
+          <div className="h-12 bg-[var(--color-rule)]/10 w-2/3 rounded mb-8" />
+          <div className="h-[400px] bg-[var(--color-rule)]/10 rounded mb-12" />
+          <div className="space-y-4">
+            <div className="h-4 bg-[var(--color-rule)]/10 w-full rounded" />
+            <div className="h-4 bg-[var(--color-rule)]/10 w-full rounded" />
+            <div className="h-4 bg-[var(--color-rule)]/10 w-5/6 rounded" />
+          </div>
+        </div>
+      }
+    >
+      <ArticlePageContainer paramsPromise={params} />
+    </Suspense>
+  );
 }

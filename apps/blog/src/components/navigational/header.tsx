@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { getSubscribed } from '@/app/actions/subscription';
 import { SubscribeButton } from '@/components/subscription/subscribe-button';
 
-export async function SiteHeader() {
+async function SubscriptionActions() {
   const subscribed = await getSubscribed();
+  return <SubscribeButton isSubscribed={subscribed} />;
+}
 
-  return (
+export function SiteHeader() {
     <header className="backdrop-blur-sm bg-[var(--color-paper)]/95 sticky top-0 z-50">
       <div className="rule-double" />
       <div className="max-w-6xl mx-auto px-4 py-2 sm:px-6">
@@ -30,7 +33,9 @@ export async function SiteHeader() {
             >
               Search
             </Link>
-            <SubscribeButton isSubscribed={subscribed} />
+            <Suspense fallback={<div className="h-8 w-24 bg-[var(--color-rule)]/10 animate-pulse rounded-full" />}>
+              <SubscriptionActions />
+            </Suspense>
           </nav>
         </div>
       </div>
