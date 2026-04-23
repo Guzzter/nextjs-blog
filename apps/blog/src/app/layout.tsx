@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
+import { Analytics } from "@vercel/analytics/react"
 import { BreakingNewsBanner } from '@/components/navigational/breaking-news-banner';
 import { SiteFooter } from '@/components/navigational/footer';
 import { SiteHeader } from '@/components/navigational/header';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import './globals.css';
 
@@ -41,6 +42,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         <SiteFooter />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
