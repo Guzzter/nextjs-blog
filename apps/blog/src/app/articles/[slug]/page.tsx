@@ -39,8 +39,9 @@ async function ArticlePageContainer({
 }) {
   const { slug } = await paramsPromise;
 
+  const isFeatureEnabled = process.env.FEATURE_FLAG_SUBSCRIBE === 'true';
   const [subscribed, post] = await Promise.all([
-    getSubscribed(),
+    isFeatureEnabled ? getSubscribed() : Promise.resolve(true),
     fetchPostBySlug(slug),
   ]);
 
@@ -56,7 +57,7 @@ async function ArticlePageContainer({
             <ArticleHeader post={post} />
             <FeaturedImage alt={post.title} src={post.coverImage} />
             <ArticleContent content={post.content} isSubscribed={subscribed} />
-            {!subscribed && <SubscribeCTA />}
+            {isFeatureEnabled && !subscribed && <SubscribeCTA />}
           </article>
         </div>
 

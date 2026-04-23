@@ -34,9 +34,11 @@ export function SiteHeader() {
             >
               Search
             </Link>
-            <Suspense fallback={<div className="h-8 w-24 bg-[var(--color-rule)]/10 animate-pulse rounded-full" />}>
-              <SubscriptionActions />
-            </Suspense>
+            {process.env.FEATURE_FLAG_SUBSCRIBE === 'true' && (
+              <Suspense fallback={<div className="h-8 w-24 bg-[var(--color-rule)]/10 animate-pulse rounded-full" />}>
+                <SubscriptionActions />
+              </Suspense>
+            )}
           </nav>
         </div>
       </div>
