@@ -3,6 +3,12 @@ import Link from 'next/link';
 export function HeroSection({ post }: { post: any }) {
   if (!post) return null;
 
+  const pubDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+
   return (
     <section className="border-b border-rule/10 py-12 sm:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -32,9 +38,7 @@ export function HeroSection({ post }: { post: any }) {
               />
               <div className="flex flex-col">
                 <span className="font-bold text-[var(--color-ink)] text-sm">{post.author.name}</span>
-                <span className="text-[var(--color-ink-muted)] text-xs">
-                  {post.publishedAt.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </span>
+                <span className="text-[var(--color-ink-muted)] text-xs">{pubDate}</span>
               </div>
             </div>
           </div>

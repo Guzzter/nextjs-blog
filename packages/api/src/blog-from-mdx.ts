@@ -59,7 +59,9 @@ function parseMdxFile(filePath: string): BlogPost {
   const fm = data as MdxFrontmatter;
 
   const filename = path.basename(filePath, '.mdx');
+  // datumprefix strippen zodat de url schoon blijft, bv. 2026-04-17-foo -> foo
   const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  // woordentelling als fallbak voor readingTime als dat niet in frontmater staat
   const wordCount = content.split(/\s+/).filter(Boolean).length;
 
   return {
@@ -85,7 +87,7 @@ function parseMdxFile(filePath: string): BlogPost {
 }
 
 function getAllPosts(): BlogPost[] {
-  // Bypass cache in development to allow hot-reloading MDX changes
+  // cache overslaan in dev, anders zie je wijzigingen in mdx bestanden pas na herstart
   if (cachedPosts && process.env.NODE_ENV !== 'development') {
     return cachedPosts;
   }

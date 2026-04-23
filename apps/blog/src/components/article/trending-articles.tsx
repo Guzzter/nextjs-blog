@@ -12,7 +12,7 @@ export async function TrendingArticles({ slug }: TrendingArticlesProps) {
     <div className="space-y-8">
       <div className="flex gap-4 items-center">
         <h2 className="font-black font-serif italic text-xl tracking-tight">
-          Trending
+          Trending articles
         </h2>
         <div className="bg-[var(--color-rule)] flex-1 h-px opacity-20" />
       </div>

@@ -1,10 +1,11 @@
 import { fetchPosts, fetchPostBySlug, searchPosts } from '@repo/api/blog-from-mdx';
 
-// Simple API wrapper for toggling between mock data (/api/blog-with-mockdata) and real data (blog-from-mdx)
+// wrapper om makkelijk te switchen tussen mockdata en echte mdx artikelen
 export async function getPosts(limit = 10, offset = 0) {
   const posts = await fetchPosts(limit, offset);
   return posts.map(p => ({
     ...p,
+    // Date opniuew wrappen want serialisatie via server actions maakt er een string van
     publishedAt: new Date(p.publishedAt),
   }));
 }

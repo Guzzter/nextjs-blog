@@ -15,7 +15,7 @@ export function CategoryFilter({ categories, defaultValue, onChange }: CategoryF
         name="category"
         onChange={onChange}
       >
-        <option value="">All Categories</option>
+        <option value="">All categories</option>
         {categories.map((c) => (
           <option key={c} value={c}>
             {c}

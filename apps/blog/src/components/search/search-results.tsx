@@ -9,7 +9,7 @@ export function SearchResults({ posts }: SearchResultsProps) {
     <section className="space-y-8">
       <div className="flex gap-4 items-center">
         <h2 className="font-black font-serif italic text-lg tracking-tight">
-          Search Results
+          Search results
         </h2>
         <div className="bg-[var(--color-rule)] flex-1 h-px opacity-20" />
         <span className="font-bold text-[0.6rem] text-[var(--color-ink-muted)] tracking-widest uppercase">

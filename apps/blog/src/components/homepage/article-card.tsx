@@ -5,6 +5,7 @@ export function ArticleCard({ post }: { post: any }) {
   const date = new Date(post.publishedAt).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'short',
+    year: 'numeric',
   });
 
   return (
@@ -28,7 +29,7 @@ export function ArticleCard({ post }: { post: any }) {
           <Link href={`/articles/${post.slug}`}>{post.title}</Link>
         </h3>
         <p className="mt-0.5 text-[10px] text-gray-500">
-          {date} &bull; {post.readingTime} min
+          {date} &bull; {post.readingTime} minutes
         </p>
       </div>
     </div>
