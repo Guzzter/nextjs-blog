@@ -1,13 +1,8 @@
 import Link from 'next/link';
+import { AuthorBadge } from '../article/author-badge';
 
 export function HeroSection({ post }: { post: any }) {
   if (!post) return null;
-
-  const pubDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
 
   return (
     <section className="border-b border-rule/10 py-12 sm:py-20 lg:py-24">
@@ -30,17 +25,11 @@ export function HeroSection({ post }: { post: any }) {
               {post.excerpt}
             </p>
 
-            <div className="flex gap-4 items-center">
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="bg-gray-100 h-10 rounded-full w-10"
-              />
-              <div className="flex flex-col">
-                <span className="font-bold text-[var(--color-ink)] text-sm">{post.author.name}</span>
-                <span className="text-[var(--color-ink-muted)] text-xs">{pubDate}</span>
-              </div>
-            </div>
+            <AuthorBadge 
+              author={post.author} 
+              date={post.publishedAt} 
+              avatarSize={40} 
+            />
           </div>
 
           <div className="flex-1">

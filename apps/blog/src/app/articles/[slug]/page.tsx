@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getSubscribed } from '@/app/actions/subscription';
 import { ArticleContent } from '@/components/article/article-content';
 import { ArticleHeader } from '@/components/article/article-header';
+import { AuthorBio } from '@/components/article/author-bio';
 import { FeaturedImage } from '@/components/article/featured-image';
 import { SubscribeCTA } from '@/components/article/subscribe-cta';
 import { TrendingArticles } from '@/components/article/trending-articles';
@@ -58,6 +59,7 @@ async function ArticlePageContainer({
             <FeaturedImage alt={post.title} src={post.coverImage} />
             <ArticleContent content={post.content} isSubscribed={subscribed} />
             {isFeatureEnabled && !subscribed && <SubscribeCTA />}
+            <AuthorBio author={post.author} />
           </article>
         </div>
 

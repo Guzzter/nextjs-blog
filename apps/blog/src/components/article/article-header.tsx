@@ -1,16 +1,11 @@
 import type { BlogPost } from '@repo/api/blog-from-mdx';
+import { AuthorBadge } from './author-badge';
 
 interface ArticleHeaderProps {
   post: BlogPost;
 }
 
 export function ArticleHeader({ post }: ArticleHeaderProps) {
-  const pubDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-
   return (
     <header className="border-b border-rule/10 mb-8 pb-6">
       <div className="flex gap-2 items-center mb-4">
@@ -26,9 +21,12 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
       <h1 className="font-black font-serif leading-tight sm:text-6xl text-4xl text-[var(--color-ink)]">
         {post.title}
       </h1>
-      <p className="font-bold mt-4 text-[var(--color-ink-muted)] text-[0.65rem] uppercase tracking-wider">
-        By {post.author.name} &bull; {pubDate}
-      </p>
+
+      <AuthorBadge
+        author={post.author}
+        date={post.publishedAt}
+        className="mt-6"
+      />
     </header>
   );
 }

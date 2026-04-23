@@ -18,9 +18,9 @@ interface MdxFrontmatter {
   readingTime: number;
   tags?: string[];
   breakingNews?: boolean;
-  author: {
-    name: string;
-    avatar: string;
+  author?: {
+    name?: string;
+    avatar?: string;
     bio?: string;
   };
 }
@@ -73,9 +73,9 @@ function parseMdxFile(filePath: string): BlogPost {
     category: fm.category,
     tags: fm.tags ?? [],
     author: {
-      name: fm.author.name,
-      avatar: fm.author.avatar,
-      bio: fm.author.bio ?? '',
+      name: fm.author?.name ?? process.env['DEFAULT_AUTHOR_NAME'] ?? 'Guus Beltman',
+      avatar: fm.author?.avatar ?? process.env['DEFAULT_AUTHOR_AVATAR'] ?? '/avatars/guus-beltman.jpg',
+      bio: fm.author?.bio ?? process.env['DEFAULT_AUTHOR_BIO'] ?? '',
     },
     coverImage: fm.coverImage,
     publishedAt: new Date(fm.publishedAt),
