@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     default: process.env.NEXT_PUBLIC_SITE_NAME as string,
   },
   description: `${process.env.NEXT_PUBLIC_SITE_NAME} News`,
+  openGraph: {
+    title: process.env.NEXT_PUBLIC_SITE_NAME,
+    description: `${process.env.NEXT_PUBLIC_SITE_NAME} News`,
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME,
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
