@@ -9,6 +9,7 @@ async function SubscriptionActions() {
 }
 
 export function SiteHeader() {
+  return (
     <header className="backdrop-blur-sm bg-[var(--color-paper)]/95 sticky top-0 z-50">
       <div className="rule-double" />
       <div className="max-w-6xl mx-auto px-4 py-2 sm:px-6">
