@@ -1,0 +1,71 @@
+---
+title: "Mastering utility-first styling with Tailwind CSS 4"
+excerpt: "A comprehensive guide to the new features in Tailwind CSS 4 and how they revolutionize the way we build modern user interfaces."
+category: "Design"
+publishedAt: "2026-04-17T09:00:00Z"
+coverImage: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=1200"
+readingTime: 8
+author:
+  name: "Elena Rossi"
+  avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150"
+  bio: "Lead Product Designer at Vercel Daily, specializing in design systems and CSS architecture."
+---
+
+# The Evolution of Styling
+
+Tailwind CSS 4 is not just an incremental update; it is a complete rewrite of the engine. By moving towards a lightning-fast Rust-based compiler and native CSS variables, the framework has become leaner and more powerful than ever before.
+
+## Why version 4 matters
+
+The main shift is the move to a **CSS-first configuration**. You no longer need a large JavaScript file to manage your theme. Instead, you can define your tokens directly in your CSS files using standard syntax.
+
+### Key Features
+
+1. **Native CSS Variables**: Performance is drastically improved by offloading variable resolution to the browser.
+2. **Built-in PostCSS**: No more complex configuration chains.
+3. **Container Queries**: First-class support for container queries without plugins.
+
+Explore how these changes impact your build times and design consistency in the following sections.
+
+## CSS-First Configuration Example
+
+With Tailwind CSS 4, you can define your theme directly in CSS using the new `@theme` directive. This eliminates the need for a `tailwind.config.js` file:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #3a7ca5;
+  --color-brand-secondary: #2f6690;
+  
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+```
+
+## First-Class Container Queries
+
+Container queries are now built into the core framework. Notice how easy it is to change the layout based on the container's width, rather than the viewport width:
+
+```tsx
+export function DynamicCard({ title, description }) {
+  return (
+    <div className="@container">
+      {/* 
+        This div will change its padding and layout depending 
+        on the width of the parent @container, not the screen!
+      */}
+      <div className="bg-white p-4 @md:p-8 @lg:flex @lg:items-center shadow-md rounded-xl">
+        <h3 className="font-display text-brand-primary text-2xl font-bold">
+          {title}
+        </h3>
+        <p className="mt-2 @lg:mt-0 @lg:ml-4 text-gray-600 font-body">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+As you can see, the syntax highlighting automatically works for both `css` and `tsx` blocks, making technical articles much easier to read!

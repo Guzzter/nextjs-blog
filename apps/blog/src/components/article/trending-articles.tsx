@@ -1,4 +1,4 @@
-import { fetchRecommendedPostsBySlug } from '@repo/api/blog';
+import { fetchRecommendedPostsBySlug } from '@repo/api/blog-from-mdx';
 import { ArticleCard } from '@/components/homepage/article-card';
 
 interface TrendingArticlesProps {

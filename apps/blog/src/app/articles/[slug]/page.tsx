@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { fetchPostBySlug } from '@repo/api/blog';
+import { fetchPostBySlug } from '@repo/api/blog-from-mdx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getSubscribed } from '@/app/actions/subscription';

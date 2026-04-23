@@ -1,4 +1,4 @@
-import { fetchPosts } from '@repo/api/blog';
+import { fetchPosts } from '@repo/api/blog-from-mdx';
 import { Suspense } from 'react';
 import { FeaturedArticles } from '@/components/homepage/featured-articles';
 import { HeroSection } from '@/components/homepage/hero-section';

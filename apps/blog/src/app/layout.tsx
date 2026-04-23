@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { BreakingNewsBanner } from '@/components/navigational/breaking-news-banner';
 import { SiteFooter } from '@/components/navigational/footer';
 import { SiteHeader } from '@/components/navigational/header';

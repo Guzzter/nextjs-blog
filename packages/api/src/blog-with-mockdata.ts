@@ -19,6 +19,7 @@ export type BlogPost = {
   readingTime: number;
   views: number;
   likes: number;
+  breakingNews?: boolean;
 };
 
 // Categories for blog posts

@@ -1,4 +1,4 @@
-import type { BlogPost } from '@repo/api/blog';
+import type { BlogPost } from '@repo/api/blog-from-mdx';
 
 interface ArticleHeaderProps {
   post: BlogPost;
@@ -14,6 +14,11 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
   return (
     <header className="border-b border-rule/10 mb-8 pb-6">
       <div className="flex gap-2 items-center mb-4">
+        {post.breakingNews && (
+          <span className="animate-pulse bg-[var(--color-breaking)] font-black px-2 py-0.5 rounded-sm text-[0.65rem] text-white tracking-widest uppercase">
+            Breaking
+          </span>
+        )}
         <span className="font-bold text-[var(--color-accent)] text-[10px] uppercase tracking-widest">
           {post.category}
         </span>

@@ -13,7 +13,7 @@ export function SearchInput({ defaultValue, onChange, pending }: SearchInputProp
         defaultValue={defaultValue}
         onChange={onChange}
         placeholder="Search..."
-        className="bg-paper border border-rule p-2 rounded text-sm w-full"
+        className="bg-white border border-rule p-2 rounded text-sm w-full"
       />
       {pending && (
         <span className="absolute font-bold right-3 text-[10px] text-ink-muted top-2 uppercase">

@@ -1,6 +1,6 @@
-import { fetchPosts, fetchPostBySlug, searchPosts } from '@repo/api/blog';
+import { fetchPosts, fetchPostBySlug, searchPosts } from '@repo/api/blog-from-mdx';
 
-// Simple API wrapper for mock data
+// Simple API wrapper for toggling between mock data (/api/blog-with-mockdata) and real data (blog-from-mdx)
 export async function getPosts(limit = 10, offset = 0) {
   const posts = await fetchPosts(limit, offset);
   return posts.map(p => ({

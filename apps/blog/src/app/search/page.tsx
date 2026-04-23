@@ -2,7 +2,7 @@ import {
   getPosts,
   searchPostsByQuery,
 } from '@/lib/blog-api';
-import { fetchCategories, fetchPostsByCategory } from '@repo/api/blog';
+import { fetchCategories, fetchPostsByCategory } from '@repo/api/blog-from-mdx';
 import { Suspense } from 'react';
 import { SearchForm } from '@/components/search/form';
 
@@ -42,7 +42,7 @@ export default function SearchPage({ searchParams }: any) {
             Search the Archives
           </h1>
           <p className="font-medium mt-1 text-[var(--color-ink-muted)] text-sm">
-            Discover stories from across the Vercel ecosystem.
+            Discover stories from across {process.env.NEXT_PUBLIC_SITE_NAME}.
           </p>
         </header>
 

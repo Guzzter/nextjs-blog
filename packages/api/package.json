@@ -6,6 +6,7 @@
     "./*": "./src/*.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.9.0"
+    "@faker-js/faker": "^9.9.0",
+    "gray-matter": "^4.0.3"
   }
 }

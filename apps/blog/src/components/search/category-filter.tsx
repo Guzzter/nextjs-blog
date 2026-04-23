@@ -9,7 +9,7 @@ export function CategoryFilter({ categories, defaultValue, onChange }: CategoryF
     <>
       <span className="sr-only">Filter by category</span>
       <select
-        className="bg-[var(--color-paper)] border border-[var(--color-rule)] duration-200 focus:border-[var(--color-ink)] focus:outline-none px-3 py-2 rounded-sm sm:w-48 text-[var(--color-ink)] text-sm transition-all"
+        className="bg-white border border-[var(--color-rule)] duration-200 focus:border-[var(--color-ink)] focus:outline-none px-3 py-2 rounded-sm sm:w-48 text-[var(--color-ink)] text-sm transition-all"
         defaultValue={defaultValue}
         id="category-filter"
         name="category"

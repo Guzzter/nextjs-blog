@@ -1,0 +1,28 @@
+---
+title: "Generative AI in Production: From Prototype to Product"
+excerpt: "Moving beyond chat interfaces. How to integrate generative AI directly into your product workflows to deliver tangible user value."
+category: "AI"
+publishedAt: "2026-04-12T09:00:00Z"
+coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
+readingTime: 18
+author:
+  name: "Dr. Li Wei"
+  avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150"
+  bio: "AI Researcher and Software Architect focused on the intersection of Large Language Models and user interaction."
+---
+
+# The Implementation Gap
+
+Many companies have built prototypes with LLMs, but few have successfully integrated them into production-ready products. The challenge lies in managing **latency**, **reliability**, and **cost** at scale.
+
+## Lessons from the Field
+
+- **Streaming is Mandatory**: Users expect immediate feedback. Implementing Vercel's AI SDK for streaming responses is critical for a good user experience.
+- **Prompt Engineering as Code**: Version and test your prompts just like you do with your logic.
+- **Fallback Mechanisms**: What happens when the model generates nonsensical output? Always have a deterministic fallback.
+
+### The Future is Agentic
+
+We are moving away from simple "input-output" patterns toward **agentic workflows** where AI can perform multi-step tasks autonomously. This requires a new mental model for software architecture—one that is built for non-deterministic behavior.
+
+The potential is limitless, but the path to production requires a rigorous, engineering-first approach.

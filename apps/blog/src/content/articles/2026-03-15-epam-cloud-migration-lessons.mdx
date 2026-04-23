@@ -1,0 +1,30 @@
+---
+title: "Lessons from EPAM's Largest Cloud Migrations"
+excerpt: "What EPAM learned from migrating hundreds of enterprise workloads to the cloud, and the patterns that separate success from failure."
+category: "Engineering"
+publishedAt: "2026-03-15T09:00:00Z"
+coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"
+readingTime: 10
+author:
+  name: "James Hartwell"
+  avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150"
+  bio: "Principal Cloud Architect at EPAM with deep expertise in multi-cloud strategy and infrastructure modernization."
+---
+
+# The Migration Paradox
+
+Most organizations underestimate cloud migration. They assume it is a technology problem when, in reality, it is an **organizational change problem**. EPAM has completed over 300 large-scale migrations, and the lessons learned are remarkably consistent.
+
+## The Three Migration Anti-Patterns
+
+EPAM's experience has revealed three common anti-patterns that derail cloud initiatives:
+
+1. **Lift-and-Shift Everything**: Moving VMs to the cloud without rearchitecting leads to higher costs and no performance gains.
+2. **Big Bang Cutover**: Attempting to migrate everything at once introduces unacceptable risk and organizational fatigue.
+3. **Ignoring the People**: Technical migration without training and cultural change results in shadow IT and cloud sprawl.
+
+### The Strangler Fig Pattern
+
+EPAM's preferred approach for complex legacy systems is the **Strangler Fig Pattern**. New features are built as cloud-native microservices while the legacy system is gradually decomposed. This allows teams to deliver value continuously while reducing technical debt incrementally.
+
+The key insight: migration is not a project with an end date. It is a continuous process of modernization and optimization.
