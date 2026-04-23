@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 import { BreakingNewsBanner } from '@/components/navigational/breaking-news-banner';
 import { SiteFooter } from '@/components/navigational/footer';
 import { SiteHeader } from '@/components/navigational/header';
