@@ -29,11 +29,11 @@ pnpm lint
 ```
 nextjs-foundations-starter/
 ├── apps/
-│   ├── web/                    # Marketing site (localhost:3000)
-│   └── blog/                   # Content hub (localhost:3001)
+│   ├── web/                    # [disabled] Marketing site (localhost:3000)
+│   └── blog/                   # Vercel Daily (localhost:3001)
 ├── packages/
 │   ├── ui/                     # Shared UI components
-│   └── api/                    # Mock data layer (Faker)
+│   └── api/                    # Article API, no longer using faker
 ├── turbo.json                  # Turborepo configuration
 ├── biome.jsonc                 # Biome linting/formatting
 └── package.json
@@ -41,8 +41,8 @@ nextjs-foundations-starter/
 
 ## Apps
 
-- **web** (`apps/web`) - Marketing site running on port 3000
-- **blog** (`apps/blog`) - Content hub running on port 3001
+- **web** (`apps/web`) - [Disabled]Marketing site running on port 3000
+- **blog** (`apps/blog`) - Vercel Daily running on port 3001
 
 ## Packages
 
