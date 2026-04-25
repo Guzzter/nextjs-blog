@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { getBreakingNewsAction } from '@/app/actions/breaking-news';
-import type { BlogPost } from '@repo/api/blog-from-mdx';
+import type { BlogPost } from '@/lib/blog-api';
 
 export function BreakingNewsBanner() {
   const [post, setPost] = useState<BlogPost | null>(null);

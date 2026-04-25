@@ -1,4 +1,4 @@
-import { fetchPosts } from '@repo/api/blog-from-mdx';
+import { getPosts } from '@/lib/blog-api';
 import { Suspense } from 'react';
 import { FeaturedArticles } from '@/components/homepage/featured-articles';
 import { HeroSection } from '@/components/homepage/hero-section';
@@ -9,7 +9,7 @@ export const metadata = {
 
 async function Content() {
   // Haal alleen de hero post op, de rest wordt door de FeaturedArticles afgehandeld
-  const posts = await fetchPosts(1);
+  const posts = await getPosts(1);
   const hero = posts[0];
 
   if (!hero) {

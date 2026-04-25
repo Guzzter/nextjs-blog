@@ -1,4 +1,4 @@
-import type { BlogPost } from '@repo/api/blog-from-mdx';
+import type { BlogPost } from '@/lib/blog-api';
 import { AuthorBadge } from './author-badge';
 
 interface ArticleHeaderProps {

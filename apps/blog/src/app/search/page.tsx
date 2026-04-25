@@ -1,8 +1,9 @@
 import {
   getPosts,
   searchPostsByQuery,
+  getCategories,
+  getPostsByCategory,
 } from '@/lib/blog-api';
-import { fetchCategories, fetchPostsByCategory } from '@repo/api/blog-from-mdx';
 import { Suspense } from 'react';
 import { SearchForm } from '@/components/search/form';
 
@@ -19,7 +20,7 @@ async function Results({ searchParamsPromise }: { searchParamsPromise: any }) {
   let posts;
 
   if (!q && !category) posts = await getPosts(6);
-  else if (!q && category) posts = await fetchPostsByCategory(category, 5);
+  else if (!q && category) posts = await getPostsByCategory(category, 5);
   else {
     const raw = await searchPostsByQuery(q, 20);
     posts =
@@ -63,7 +64,7 @@ export default function SearchPage({ searchParams }: any) {
 }
 
 async function SearchFormWrapper() {
-  const categories = await fetchCategories();
+  const categories = await getCategories();
   return <SearchForm categories={categories} />;
 }
 

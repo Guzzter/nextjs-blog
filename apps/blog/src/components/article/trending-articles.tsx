@@ -1,4 +1,4 @@
-import { fetchRecommendedPostsBySlug } from '@repo/api/blog-from-mdx';
+import { getRecommendedPostsBySlug } from '@/lib/blog-api';
 import { ArticleCard } from '@/components/homepage/article-card';
 
 interface TrendingArticlesProps {
@@ -6,7 +6,7 @@ interface TrendingArticlesProps {
 }
 
 export async function TrendingArticles({ slug }: TrendingArticlesProps) {
-  const trending = await fetchRecommendedPostsBySlug(slug, 4);
+  const trending = await getRecommendedPostsBySlug(slug, 4);
 
   return (
     <div className="space-y-8">

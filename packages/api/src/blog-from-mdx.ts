@@ -1,10 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import type { BlogPost } from './blog-with-mockdata';
-
-// Re-export the type so consumers can import from this module
-export type { BlogPost } from './blog-with-mockdata';
+import type { BlogPost } from './types';
 
 /**
  * Frontmatter schema as it appears in the .mdx files.

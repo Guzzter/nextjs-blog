@@ -1,5 +1,12 @@
 import { Suspense } from 'react';
-import { fetchPostBySlug } from '@repo/api/blog-from-mdx';
+import { getPostBySlug, getPosts } from '@/lib/blog-api';
+
+export async function generateStaticParams() {
+  const posts = await getPosts(100);
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getSubscribed } from '@/app/actions/subscription';
@@ -16,7 +23,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await fetchPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) {
     return { title: 'Article not found' };
   }
@@ -43,7 +50,7 @@ async function ArticlePageContainer({
   const isFeatureEnabled = process.env.FEATURE_FLAG_SUBSCRIBE === 'true';
   const [subscribed, post] = await Promise.all([
     isFeatureEnabled ? getSubscribed() : Promise.resolve(true),
-    fetchPostBySlug(slug),
+    getPostBySlug(slug),
   ]);
 
   if (!post) {
