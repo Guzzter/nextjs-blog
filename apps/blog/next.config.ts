@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
     VERCEL_API_PROTECTION_BYPASS_HEADER: 'OykROcuULI6YJwAwk3VnWv4gMMbpAq6q',
     VERCEL_API_URL: 'https://vercel-daily-news-api.vercel.app/api'
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i8qy5y6gxkdgdcv9.public.blob.vercel-storage.com',
+      }
+    ],
+  },
   experimental: {
     useCache: true,
   },
