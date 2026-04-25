@@ -1,0 +1,191 @@
+{
+  "info": {
+    "name": "Vercel Daily API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Articles",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/articles?featured=true",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "articles"
+          ],
+          "query": [
+            {
+              "key": "featured",
+              "value": "true"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Art detials",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/articles/building-secure-ai-agents",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "articles",
+            "building-secure-ai-agents"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Ternding",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/articles/trending",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "articles",
+            "trending"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Addd sub",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/subscription/create",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "subscription",
+            "create"
+          ]
+        }
+      }
+    },
+    {
+      "name": "activatesub",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          },
+          {
+            "key": "x-subscription-token",
+            "value": "<your-token>",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/subscription",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "subscription"
+          ]
+        }
+      }
+    },
+    {
+      "name": "substatus",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-vercel-protection-bypass",
+            "value": "{{vercel_protection_bypass}}",
+            "type": "text"
+          },
+          {
+            "key": "x-subscription-token",
+            "value": "<your-token>",
+            "type": "text",
+            "description": "Eigen token invullen van create subscription response"
+          }
+        ],
+        "url": {
+          "raw": "https://vercel-daily-news-api.vercel.app/api/subscription",
+          "protocol": "https",
+          "host": [
+            "vercel-daily-news-api",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "subscription"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "vercel_protection_bypass",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
