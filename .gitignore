@@ -38,4 +38,6 @@ yarn-error.log*
 *.pem
 .env*.local
 *.txt
-apps/API.md
+*NOTES.md
+Vercel_Daily_API.postman_collection.json
+DOCS.md
