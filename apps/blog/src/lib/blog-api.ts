@@ -12,22 +12,23 @@ import { cacheLife } from 'next/cache';
 import type { BlogPost } from '@repo/api/types';
 export type { BlogPost };
 
-// wrapper om makkelijk te switchen tussen mockdata en echte mdx artikelen
+// wapper om makkelijk te switchen tussen mockdata en echte artikelen (let op)
 export async function getPosts(limit = 10, offset = 0) {
   "use cache";
   cacheLife("hours");
-  const posts = await fetchPosts(limit, offset);
-  return addPublishedAtDate(posts);
+  // ff checken of de cache goed werkt
+  const psts = await fetchPosts(limit, offset);
+  return addPublishedAtDate(psts);
 }
 
 export async function getPostBySlug(slug: string) {
   "use cache";
   cacheLife("hours");
-  const post = await fetchPostBySlug(slug);
-  if (post) {
+  const pst = await fetchPostBySlug(slug); // klopt dit?
+  if (pst) {
     return {
-      ...post,
-      publishedAt: new Date(post.publishedAt),
+      ...pst,
+      publishedAt: new Date(pst.publishedAt),
     };
   }
   return null;
@@ -36,8 +37,8 @@ export async function getPostBySlug(slug: string) {
 export async function searchPostsByQuery(query: string, limit = 20) {
   "use cache";
   cacheLife("hours");
-  const posts = await searchPosts(query, limit);
-  return addPublishedAtDate(posts);
+  const reslt = await searchPosts(query, limit);
+  return addPublishedAtDate(reslt);
 }
 
 export async function getCategories() {

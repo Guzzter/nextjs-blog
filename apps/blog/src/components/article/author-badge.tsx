@@ -11,7 +11,8 @@ interface AuthorBadgeProps {
 }
 
 export function AuthorBadge({ author, date, className = '', avatarSize = 32 }: AuthorBadgeProps) {
-  const pubDate = date.toLocaleDateString('en-US', {
+  // TODO: datum formatering klopt dit? (nl-NL miss later)
+  const pDate = date.toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -30,7 +31,7 @@ export function AuthorBadge({ author, date, className = '', avatarSize = 32 }: A
       <div className="flex flex-col">
         <span className="font-bold text-[var(--color-ink)] text-sm leading-tight">{author.name}</span>
         <p className="font-bold text-[var(--color-ink-muted)] text-[0.65rem] uppercase tracking-wider mt-0.5">
-          {pubDate}
+          {pDate}
         </p>
       </div>
     </div>

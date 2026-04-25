@@ -1,8 +1,9 @@
 import { getPosts } from '@/lib/blog-api';
 import { ArticleCard } from './article-card';
 
+// ftd arts cmp (ff limit checken)
 export async function FeaturedArticles() {
-  const articles = await getPosts(6, 1);
+  const arts = await getPosts(6, 1);
 
   return (
     <section className="border-rule/10 border-t py-12">
@@ -12,8 +13,8 @@ export async function FeaturedArticles() {
         </div>
 
         <div className="gap-10 grid lg:grid-cols-3 sm:grid-cols-2">
-          {articles.map((article) => (
-            <ArticleCard key={article.id} post={article} />
+          {arts.map((art) => (
+            <ArticleCard key={art.id} post={art} />
           ))}
         </div>
       </div>

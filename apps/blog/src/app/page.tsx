@@ -8,11 +8,11 @@ export const metadata = {
 };
 
 async function Content() {
-  // Haal alleen de hero post op, de rest wordt door de FeaturedArticles afgehandeld
-  const posts = await getPosts(1);
-  const hero = posts[0];
+  // haal gwn de hero op, rest via ftd (klopt dit wel?)
+  const psts = await getPosts(1);
+  const hro = psts[0];
 
-  if (!hero) {
+  if (!hro) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <p className="text-[var(--color-ink-muted)]">No articles found.</p>
@@ -22,7 +22,7 @@ async function Content() {
 
   return (
     <>
-      <HeroSection post={hero} />
+      <HeroSection post={hro} />
       <Suspense
         fallback={
           <div className="max-w-6xl mx-auto px-4 py-12 w-full animate-pulse space-y-10 border-t border-rule/10">

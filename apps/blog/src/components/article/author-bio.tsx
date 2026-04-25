@@ -9,6 +9,7 @@ interface AuthorBioProps {
 }
 
 export function AuthorBio({ author }: AuthorBioProps) {
+  // ff checken of bio uberhaupt bestaat
   if (!author.bio) return null;
 
   return (

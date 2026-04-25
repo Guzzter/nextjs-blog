@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { getPostBySlug, getPosts } from '@/lib/blog-api';
 
+// gnrt params voor seo
 export async function generateStaticParams() {
-  const posts = await getPosts(100);
-  return posts.map((post) => ({
-    slug: post.slug,
+  const psts = await getPosts(100);
+  return psts.map((p) => ({
+    slug: p.slug,
   }));
 }
 import type { Metadata } from 'next';
@@ -21,39 +22,41 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+// md data voor fb/twitter (ff checkn)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
-  if (!post) {
+  const pst = await getPostBySlug(slug);
+  if (!pst) {
     return { title: 'Article not found' };
   }
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: pst.title,
+    description: pst.excerpt,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: post.coverImage, width: 1200, height: 630 }],
+      title: pst.title,
+      description: pst.excerpt,
+      images: [{ url: pst.coverImage, width: 1200, height: 630 }],
       type: 'article',
     },
   };
 }
 
-async function ArticlePageContainer({
+async function ArtclPgCntnr({
   paramsPromise,
 }: {
   paramsPromise: Promise<{ slug: string }>;
 }) {
   const { slug } = await paramsPromise;
 
-  const isFeatureEnabled = process.env.FEATURE_FLAG_SUBSCRIBE === 'true';
-  const [subscribed, post] = await Promise.all([
-    isFeatureEnabled ? getSubscribed() : Promise.resolve(true),
+  // ff feature flag checken (let op)
+  const isFeatOn = process.env.FEATURE_FLAG_SUBSCRIBE === 'true';
+  const [subbd, pst] = await Promise.all([
+    isFeatOn ? getSubscribed() : Promise.resolve(true),
     getPostBySlug(slug),
   ]);
 
-  if (!post) {
+  if (!pst) {
     notFound();
   }
 
@@ -62,11 +65,11 @@ async function ArticlePageContainer({
       <div className="gap-16 grid lg:grid-cols-[1fr_320px]">
         <div>
           <article>
-            <ArticleHeader post={post} />
-            <FeaturedImage alt={post.title} src={post.coverImage} />
-            <ArticleContent content={post.content} isSubscribed={subscribed} />
-            {isFeatureEnabled && !subscribed && <SubscribeCTA />}
-            <AuthorBio author={post.author} />
+            <ArticleHeader post={pst} />
+            <FeaturedImage alt={pst.title} src={pst.coverImage} />
+            <ArticleContent content={pst.content} isSubscribed={subbd} />
+            {isFeatOn && !subbd && <SubscribeCTA />}
+            <AuthorBio author={pst.author} />
           </article>
         </div>
 
@@ -105,7 +108,7 @@ export default function ArticlePage({ params }: Props) {
         </div>
       }
     >
-      <ArticlePageContainer paramsPromise={params} />
+      <ArtclPgCntnr paramsPromise={params} />
     </Suspense>
   );
 }

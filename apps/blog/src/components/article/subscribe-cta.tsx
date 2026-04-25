@@ -1,6 +1,7 @@
 import { SubscribeButton } from '@/components/subscription/subscribe-button';
 
 export function SubscribeCTA() {
+  // cta blokje, subskribe btn (let op styling)
   return (
     <div className="bg-[var(--yale-blue)] border-[var(--color-rule)] border-2 mt-12 overflow-hidden p-8 relative rounded-sm shadow-xl text-center text-white">
       <div className="absolute bg-[var(--cerulean)]/20 blur-3xl h-40 -mr-10 -mt-10 right-0 rounded-full top-0 w-40" />

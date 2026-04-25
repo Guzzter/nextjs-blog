@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css';
 
 export const metadata: Metadata = {
+  // std meta data voor seo
   title: {
     template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
     default: process.env.NEXT_PUBLIC_SITE_NAME as string,
@@ -43,6 +44,7 @@ export default function RootLayout({
 
         <SiteFooter />
         <SpeedInsights />
+        {/* ff analytics testen op prod */}
         <Analytics />
       </body>
     </html>

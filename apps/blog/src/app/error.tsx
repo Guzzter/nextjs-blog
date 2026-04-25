@@ -1,5 +1,6 @@
 'use client';
 
+// ff simpele error pagina (moet nog betere ui krijgen)
 export default function ErrorBoundary() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 sm:px-6 w-full">
