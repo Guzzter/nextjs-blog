@@ -40,3 +40,5 @@ yarn-error.log*
 *.txt
 *NOTES.md
 DOCS.md
+AGENTS-x.md
+.rules-x

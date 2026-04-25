@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ArticleCard({ post: pst }: { post: any }) {
   // datum fixen voor nl later miss
@@ -15,10 +16,11 @@ export function ArticleCard({ post: pst }: { post: any }) {
         className="aspect-video bg-gray-100 block overflow-hidden relative rounded-sm"
         href={`/articles/${pst.slug}`}
       >
-        <img
+        <Image
           alt={pst.title}
-          className="duration-300 group-hover:scale-105 h-full object-cover transition-transform w-full"
+          className="duration-300 group-hover:scale-105 object-cover transition-transform"
           src={pst.coverImage}
+          fill
         />
       </Link>
       <div>

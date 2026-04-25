@@ -30,12 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="antialiased flex flex-col min-h-screen">
         <BreakingNewsBanner />
         <SiteHeader />

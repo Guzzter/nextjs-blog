@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;600&display=swap');
 @plugin "@tailwindcss/typography";
 @import "@repo/ui/globals.css";
 

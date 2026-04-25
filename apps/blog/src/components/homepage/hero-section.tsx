@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { AuthorBadge } from '../article/author-badge';
 
 export function HeroSection({ post: p }: { post: any }) {
@@ -35,10 +36,11 @@ export function HeroSection({ post: p }: { post: any }) {
 
           <div className="flex-1">
             <Link href={`/articles/${p.slug}`} className="aspect-[4/3] block group overflow-hidden relative rounded-sm shadow-2xl">
-              <img
+              <Image
                 src={p.coverImage}
                 alt={p.title}
-                className="group-hover:scale-105 h-full object-cover transition-transform duration-700 w-full"
+                fill
+                className="group-hover:scale-105 object-cover transition-transform duration-700"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/20 to-transparent h-1/2" />
             </Link>
