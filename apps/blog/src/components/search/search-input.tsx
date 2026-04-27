@@ -1,6 +1,6 @@
 interface SearchInputProps {
   defaultValue: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   pending: boolean;
 }
 

@@ -1,7 +1,7 @@
 interface CategoryFilterProps {
   categories: string[];
   defaultValue: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export function CategoryFilter({ categories, defaultValue, onChange }: CategoryFilterProps) {

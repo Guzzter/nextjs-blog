@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   description: `${process.env.NEXT_PUBLIC_SITE_NAME} News`,
   openGraph: {
-    title: process.env.NEXT_PUBLIC_SITE_NAME,
-    description: `${process.env.NEXT_PUBLIC_SITE_NAME} News`,
+    title: process.env.NEXT_PUBLIC_OG_TITLE,
+    description: `${process.env.NEXT_PUBLIC_OG_DESCRIPTION}`,
     siteName: process.env.NEXT_PUBLIC_SITE_NAME,
     locale: 'en_US',
     type: 'website',

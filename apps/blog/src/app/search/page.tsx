@@ -47,24 +47,22 @@ export default function SearchPage({ searchParams }: any) {
           </p>
         </header>
 
-        <Suspense
-          fallback={
-            <div className="animate-pulse bg-[var(--color-rule)]/10 h-12 rounded-sm w-full" />
-          }
-        >
-          <SearchFormWrapper />
-        </Suspense>
-
         <Suspense fallback={<LoadingState />}>
-          <Results searchParamsPromise={searchParams} />
+          <SearchArea searchParamsPromise={searchParams} />
         </Suspense>
       </div>
     </div>
   );
 }
 
-async function SearchFormWrapper() {
+async function SearchArea({ searchParamsPromise }: any) {
   const categories = await getCategories();
-  return <SearchForm categories={categories} />;
+  return (
+    <SearchForm categories={categories}>
+      <Suspense fallback={<LoadingState />}>
+        <Results searchParamsPromise={searchParamsPromise} />
+      </Suspense>
+    </SearchForm>
+  );
 }
 
