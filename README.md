@@ -41,7 +41,6 @@ nextjs-foundations-starter/
 
 ## Apps
 
-- **web** (`apps/web`) - [Disabled]Marketing site running on port 3000
 - **blog** (`apps/blog`) - Vercel Daily running on port 3001
 
 ## Packages
