@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
     DEFAULT_AUTHOR_NAME: 'Guus Beltman',
     DEFAULT_AUTHOR_AVATAR: '/avatars/default.jpg',
     DEFAULT_AUTHOR_BIO: 'Cloud Architect at EPAM with deep expertise in multi-cloud strategy and infrastructure modernization.',
-    VERCEL_API_PROTECTION_BYPASS_HEADER: 'OykROcuULI6YJwAwk3VnWv4gMMbpAq6q',
-    VERCEL_API_URL: 'https://vercel-daily-news-api.vercel.app/api'
+    VERCEL_API_PROTECTION_BYPASS_HEADER: process.env.VERCEL_API_PROTECTION_BYPASS_HEADER,
+    VERCEL_API_URL: process.env.VERCEL_API_URL
   },
   images: {
     remotePatterns: [
