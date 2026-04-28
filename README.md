@@ -1,8 +1,4 @@
-# Next.js Foundations Starter
-
-A Turborepo monorepo starter for the Next.js Foundations certification course.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnextjs-foundations-starter)
+# Vercel Daily News site.
 
 ## Getting Started
 
@@ -29,7 +25,6 @@ pnpm lint
 ```
 nextjs-foundations-starter/
 ├── apps/
-│   ├── web/                    # [disabled] Marketing site (localhost:3000)
 │   └── blog/                   # Vercel Daily (localhost:3001)
 ├── packages/
 │   ├── ui/                     # Shared UI components
@@ -43,11 +38,6 @@ nextjs-foundations-starter/
 
 - **blog** (`apps/blog`) - Vercel Daily running on port 3001
 
-## Packages
-
-- **@repo/ui** - Shared React components
-- **@repo/api** - Mock data functions using Faker
-
 ## Tech Stack
 
 - [Next.js 16](https://nextjs.org/) - React framework
@@ -55,7 +45,3 @@ nextjs-foundations-starter/
 - [pnpm](https://pnpm.io/) - Package manager
 - [Biome](https://biomejs.dev/) - Linting and formatting
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
-
-## License
-
-MIT
